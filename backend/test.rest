@@ -1,0 +1,82 @@
+// COLLECTIONS
+
+// getting all collections of a user
+@user_id = 2
+@prev_cursor = 
+GET http://localhost:3001/api/collections?user_id={{user_id}}&prev_cursor={{prev_cursor}} HTTP/1.1
+content-type: application/json
+
+# {
+#     "user_id": 2,
+#     "prev_cursor": ""
+# }
+
+// creating a new collection
+POST http://localhost:3001/api/collections HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Test Collection 3",
+    "user_id": 1
+}
+
+// adding a bookmark to a collection
+POST http://localhost:3001/api/collections/5/bookmarks HTTP/1.1
+content-type: application/json
+
+{
+    "bookmark_id": 13,
+    "user_id": 2
+}
+
+// removing a bookmark from a collection
+DELETE http://localhost:3001/api/collections/8/bookmarks/3 HTTP/1.1
+content-type: application/json
+
+{
+    "user_id": 1
+}
+
+// BOOKMARKS
+
+// getting all bookmarks of an user
+GET http://localhost:3001/api/bookmarks?user_id={{user_id}} HTTP/1.1
+content-type: application/json
+
+# {
+#     "user_id": 2
+# }
+
+// getting all bookmarks of a collection 
+GET http://localhost:3001/api/collections/5/bookmarks?user_id={{user_id}}&prev_cursor={{prev_cursor}} HTTP/1.1
+content-type: application/json
+
+# {
+#     "user_id": 2,
+#     "prev_cursor": ""
+# }
+
+// getting a particular bookmark info from a user
+GET http://localhost:3001/api/bookmarks/10?user_id={{user_id}} HTTP/1.1
+content-type: application/json
+
+# {
+#     "user_id": 2
+# }
+
+// creating a new bookmark
+POST http://localhost:3001/api/bookmarks HTTP/1.1
+content-type: application/json
+
+{
+    "url": "https://www.youtube.com/watch?v=pS8EtCDH5PE",
+    "user_id": 2
+}
+
+// removing a bookmark
+DELETE http://localhost:3001/api/bookmarks/13 HTTP/1.1
+content-type: application/json
+
+{
+    "user_id": 2
+}

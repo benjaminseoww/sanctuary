@@ -1,21 +1,30 @@
 import express, { Express, Request, Response } from 'express'
-import dotenv from 'dotenv'
 
-const { createClient } = require('@supabase/supabase-js')
-
-dotenv.config()
+import collectionsRouter from './controllers/collections'
+import bookmarksRouter from './controllers/bookmarks'
 
 const app: Express = express()
 const PORT = 3001
 
-const supabaseUrl = process.env.SUPABASE_URL as string
-const supabaseKey = process.env.SUPABASE_KEY as string
-const supabase = createClient(supabaseUrl, supabaseKey)
+app.use(express.json());
 
-app.get('/', (req : Request, res : Response) => {
-  res.send('Hello World!')
+// api definitions
+const apiRouter = express.Router()
+apiRouter.get('/', (req : Request, res : Response) => {
+  res.send('Sanctuary Backend API')
 })
+
+apiRouter.use('/collections', collectionsRouter)
+apiRouter.use('/bookmarks', bookmarksRouter)
+
+// app definitions
+app.get('/', (req : Request, res : Response) => {
+  res.send('Sanctuary Backend says Hi!')
+})
+
+app.use('/api', apiRouter)
 
 app.listen(PORT, () => {
-  console.log(`This is the sample backend`)
+  console.log(`Server is running on http://localhost:${PORT}`)
 })
+
