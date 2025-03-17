@@ -3,7 +3,7 @@ import { Text, TextProps, StyleSheet } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 
 type ThemedTextProps = TextProps & {
-  type?: 'default' | 'heading' | 'subheading' | 'collectionInfo' | 'button';
+  type?: 'default' | 'heading' | 'subheading' | 'collectionInfo' | 'button' | 'bookmarkCardTop' | 'bookmarkCardBottom';
   color?: string; // Optional override color
 };
 
@@ -67,4 +67,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
   },
+  bookmarkCardTop: {
+    fontSize: 12, 
+  },
+  bookmarkCardBottom: {
+    fontSize: 10, 
+    opacity: 0.7
+  }
 });

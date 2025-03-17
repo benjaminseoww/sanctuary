@@ -24,6 +24,11 @@ export default function CollectionsHomePage() {
               style={{ flex: 1 }} 
               contentContainerStyle={{ padding: 8 }}
               scrollEnabled={true}
+              onRefresh={() => {
+                // TODO: add in re fetch logic
+                console.log("Refreshing data");
+              }}
+              refreshing={false}
               />
           </View>
           

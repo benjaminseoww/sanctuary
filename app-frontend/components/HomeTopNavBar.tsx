@@ -51,8 +51,10 @@ export default function HomeTopNavBar({
                 </Pressable>
             </View>
             <View style={{flexDirection: 'row', width: "100%", alignContent: 'center', padding: 8}}>
-                <SearchBar searchBarInput={searchBarInput} handleSearchBarInputChange={handleSearchBarInputChange}/>
-                <View style={{alignItems: 'center', justifyContent: 'center', paddingHorizontal: 4, marginLeft: 8}}>
+                <View style={{flexDirection: 'row', flex: 1, alignContent: 'center', padding: 4}}>
+                    <SearchBar searchBarInput={searchBarInput} handleSearchBarInputChange={handleSearchBarInputChange}/>
+                </View>
+                <View style={{alignItems: 'center', justifyContent: 'center', paddingHorizontal: 4, marginLeft: 4}}>
                     <MenuIcon color={useThemeColor({}, 'iconInactiveTintColor')}/>
                 </View>
             </View>

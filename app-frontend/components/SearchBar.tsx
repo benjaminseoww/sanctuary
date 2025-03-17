@@ -21,7 +21,6 @@ export default function SearchBar({searchBarInput, handleSearchBarInputChange} :
             flexDirection: 'row',
             borderRadius: 8,
             padding: 10,
-            marginLeft: 4,
             backgroundColor: searchBarBackground,
             }}>
                 <View style={{paddingRight: 8, flex: 0}}> 
