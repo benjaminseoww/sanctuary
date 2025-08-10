@@ -332,13 +332,13 @@ export default extract;
 // IG POST
 // extract("https://www.instagram.com/p/DGNEQ2Mz2gV/").then(e => console.log(e));
 // extract("https://www.instagram.com/p/DGLKbrUz3XQ/").then(e => console.log(e));
-// extract("https://www.instagram.com/p/DHAL3OoBNa3/").then(e => console.log(e));
+extract("https://www.instagram.com/p/DHAL3OoBNa3/").then(e => console.log(e));
 
 // IG REELS
 // extract('https://www.instagram.com/reel/DGKCiRZxFbZ/').then(e => console.log(e));
 
 // TIKTOK
-extract('https://www.tiktok.com/@aimrun/video/7471220123471187221').then(e => console.log(e));
+// extract('https://www.tiktok.com/@aimrun/video/7471220123471187221').then(e => console.log(e));
 
 // YOUTUBE Video
 // extract('https://www.youtube.com/watch?v=PpWId41sXWA').then(e => console.log(e));
