@@ -1,9 +1,6 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
 
-dotenv.config()
-
-const apiUrl = process.env.EXPO_PUBLIC_API_URL 
+const apiUrl = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:3001';
 const baseUrl = apiUrl + '/api/collections';
 
 // get all collections of a user
@@ -73,4 +70,4 @@ export default {
 }
 
 // testing
-console.log(deleteCollection(19, 1).then(data => console.log(data)))
+console.log(getBookmarksOfCollection(1, null, 2).then(response => console.log(response)))

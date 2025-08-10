@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from 'express'
 
 import collectionsRouter from './controllers/collections'
 import bookmarksRouter from './controllers/bookmarks'
+import loginRouter from './controllers/login'
 
 const app: Express = express()
 const PORT = 3001
@@ -16,6 +17,7 @@ apiRouter.get('/', (req : Request, res : Response) => {
 
 apiRouter.use('/collections', collectionsRouter)
 apiRouter.use('/bookmarks', bookmarksRouter)
+apiRouter.use('/login', loginRouter)
 
 // app definitions
 app.get('/', (req : Request, res : Response) => {
