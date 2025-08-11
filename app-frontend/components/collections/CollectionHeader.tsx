@@ -1,7 +1,7 @@
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 
-import { ThemedText } from '../ThemedText';
+import { ThemedText } from '@/components/ThemedText';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 import BackIcon from '@/assets/icons/menu_back.svg';

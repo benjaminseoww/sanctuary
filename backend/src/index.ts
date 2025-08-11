@@ -1,8 +1,8 @@
 import express, { Express, Request, Response } from 'express'
 
-import collectionsRouter from './controllers/collections'
-import bookmarksRouter from './controllers/bookmarks'
-import loginRouter from './controllers/login'
+import collectionsRouter from '@/controllers/collections'
+import bookmarksRouter from '@/controllers/bookmarks'
+import loginRouter from '@/controllers/login'
 
 const app: Express = express()
 const PORT = 3001
