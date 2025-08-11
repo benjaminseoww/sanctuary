@@ -1,4 +1,4 @@
-import { View, StyleSheet, Platform } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useLinkBuilder } from '@react-navigation/native';
 import { PlatformPressable } from '@react-navigation/elements';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
@@ -12,6 +12,8 @@ import SettingsIcon from '@/assets/icons/nav-settings.svg'
 
 export default function BottomNavTabBar({ state, descriptors, navigation } : BottomTabBarProps) {
     const { buildHref } = useLinkBuilder();
+    const activeColor = useThemeColor({}, "iconActiveTintColor");
+    const inactiveColor = useThemeColor({}, "iconInactiveTintColor");
 
     const icon = {
       home: (props: any) => <HomeIcon height='24' {...props}/>,
@@ -57,7 +59,7 @@ export default function BottomNavTabBar({ state, descriptors, navigation } : Bot
               style={styles.tabBarItem}
             >
               {
-                icon[route.name]({color: isFocused ? useThemeColor({}, "iconActiveTintColor") : useThemeColor({}, "iconInactiveTintColor")})
+                icon[route.name]({color: isFocused ? activeColor : inactiveColor})
               }
             </PlatformPressable>
           );
