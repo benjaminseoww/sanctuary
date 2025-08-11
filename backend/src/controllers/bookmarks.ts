@@ -2,9 +2,9 @@ import express from 'express'
 import { Request, Response } from 'express'
 
 import { createClient } from '@supabase/supabase-js'
-import { supabaseUrl, supabaseKey } from '../utils/config'
+import { supabaseUrl, supabaseKey } from '@/utils/config'
 
-import extract from '../scripts/detailExtractor'
+import extract from '@/scripts/detailExtractor'
 
 const supabase = createClient(supabaseUrl, supabaseKey)
 
