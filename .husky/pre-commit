@@ -1,0 +1,38 @@
+#!/bin/bash
+echo "🔍 Running pre-commit checks..."
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+printf "${YELLOW}📦 Running checks for Backend...${NC}\n"
+cd backend
+if ! pnpm run typecheck; then
+  printf "${RED}❌ Backend typecheck failed${NC}\n"
+  exit 1
+fi
+
+if ! pnpm run lint; then
+  printf "${RED}❌ Backend lint failed${NC}\n"
+  exit 1
+fi
+
+printf "${GREEN}✅ Backend checks passed${NC}\n"
+
+cd ../app-frontend
+printf "${YELLOW}📦 Running checks for Frontend...${NC}\n"
+
+if ! pnpm run typecheck; then
+  printf "${RED}❌ Frontend typecheck failed${NC}\n"
+  exit 1
+fi
+
+if ! pnpm run lint; then
+  printf "${RED}❌ Frontend lint failed${NC}\n"
+  exit 1
+fi
+
+printf "${GREEN}✅ Frontend checks passed${NC}\n"
+printf "${GREEN}🎉 All pre-commit checks passed!${NC}\n"

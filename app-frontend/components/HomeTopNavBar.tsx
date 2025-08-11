@@ -1,4 +1,4 @@
-import { Text, View, TextInput, Pressable, StyleSheet } from "react-native";
+import { Text, View, Pressable, StyleSheet } from "react-native";
 
 import MenuIcon from '@/assets/icons/menu.svg';
 
@@ -19,6 +19,8 @@ export default function HomeTopNavBar({
         handleSearchBarInputChange : (text: string) => void, 
         tabEnums: any
     }) {
+    const activeColor = useThemeColor({}, 'iconActiveTintColor');
+    const inactiveColor = useThemeColor({}, 'iconInactiveTintColor');
 
     return (
         <View style={{
@@ -32,21 +34,21 @@ export default function HomeTopNavBar({
             marginBottom: 8
             }}>
                 <Pressable onPress={() => handleTabChange(tabEnums.UNSORTED)}>
-                    <Text style={activeTab == tabEnums.UNSORTED ? 
-                        {...styles.navText, color: useThemeColor({}, 'iconActiveTintColor'), borderBottomColor: useThemeColor({}, 'iconActiveTintColor')} : 
-                        {...styles.navText, color: useThemeColor({}, 'iconInactiveTintColor'), borderBottomColor: 'transparent'}}>
+                    <Text style={activeTab === tabEnums.UNSORTED ? 
+                        {...styles.navText, color: activeColor, borderBottomColor: activeColor} : 
+                        {...styles.navText, color: inactiveColor, borderBottomColor: 'transparent'}}>
                             Unsorted</Text>
                 </Pressable>
                 <Pressable onPress={() => handleTabChange(tabEnums.COLLECTIONS)}>
-                    <Text style={activeTab == tabEnums.COLLECTIONS ? 
-                        {...styles.navText, color: useThemeColor({}, 'iconActiveTintColor'), borderBottomColor: useThemeColor({}, 'iconActiveTintColor')} : 
-                        {...styles.navText, color: useThemeColor({}, 'iconInactiveTintColor'), borderBottomColor: 'transparent'}}>
+                    <Text style={activeTab === tabEnums.COLLECTIONS ? 
+                        {...styles.navText, color: activeColor, borderBottomColor: activeColor} : 
+                        {...styles.navText, color: inactiveColor, borderBottomColor: 'transparent'}}>
                             Collections</Text>
                 </Pressable>
                 <Pressable onPress={() => handleTabChange(tabEnums.TAGS)}>
-                    <Text style={activeTab == tabEnums.TAGS ? 
-                        {...styles.navText, color: useThemeColor({}, 'iconActiveTintColor'), borderBottomColor: useThemeColor({}, 'iconActiveTintColor')} : 
-                        {...styles.navText, color: useThemeColor({}, 'iconInactiveTintColor'), borderBottomColor: 'transparent'}}>
+                    <Text style={activeTab === tabEnums.TAGS ? 
+                        {...styles.navText, color: activeColor, borderBottomColor: activeColor} : 
+                        {...styles.navText, color: inactiveColor, borderBottomColor: 'transparent'}}>
                             Tags</Text>
                 </Pressable>
             </View>
@@ -55,7 +57,7 @@ export default function HomeTopNavBar({
                     <SearchBar searchBarInput={searchBarInput} handleSearchBarInputChange={handleSearchBarInputChange}/>
                 </View>
                 <View style={{alignItems: 'center', justifyContent: 'center', paddingHorizontal: 4, marginLeft: 4}}>
-                    <MenuIcon color={useThemeColor({}, 'iconInactiveTintColor')}/>
+                    <MenuIcon color={inactiveColor}/>
                 </View>
             </View>
         </View>
