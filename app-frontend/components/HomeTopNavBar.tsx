@@ -4,7 +4,7 @@ import MenuIcon from '@/assets/icons/menu.svg';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 
-import SearchBar from "./SearchBar";
+import SearchBar from "@/components/SearchBar";
 
 export default function HomeTopNavBar({
     activeTab, 
