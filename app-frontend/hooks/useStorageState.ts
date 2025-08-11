@@ -52,6 +52,7 @@ export function useStorageState(key: string): UseStateHook<string> {
         setState(value);
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
   // Set
@@ -60,6 +61,7 @@ export function useStorageState(key: string): UseStateHook<string> {
       setState(value);
       setStorageItemAsync(key, value);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [key]
   );
 
